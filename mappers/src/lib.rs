@@ -3,6 +3,7 @@ extern crate params;
 extern crate router;
 extern crate image;
 extern crate gdal;
+extern crate geo;
 extern crate colorizers;
 extern crate num;
 extern crate chrono;
@@ -16,6 +17,7 @@ pub mod mappers_handler;
 //pub mod spatial_reference;
 pub mod gdal_source;
 pub mod errors;
+pub mod vectors;
 
 #[cfg(test)]
 mod tests {
