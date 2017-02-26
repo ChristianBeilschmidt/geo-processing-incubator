@@ -282,3 +282,30 @@ impl FeatureCollection<Point<f64>> {
         )
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn filter_inplace() {
+        let mut point_collection = FeatureCollection::new(
+            &[Point::new(1.0, 1.0), Point::new(2.0, 2.0), Point::new(3.0, 3.0)],
+            None
+        ).expect("The point collection is invalid.");
+
+        point_collection.filter_inplace(&[true, false, true]);
+
+        let filtered_geoms: Vec<Point<f64>> = point_collection.geom_iter().collect();
+
+        assert_eq!(2, filtered_geoms.len(), "The size should be 2.");
+
+        // TODO: compare points
+        // assert_eq!(
+        //     &[Point::new(1.0, 1.0), Point::new(3.0, 3.0)],
+        //     &filtered_geoms,
+        //     "The points did not match."
+        // );
+    }
+
+}

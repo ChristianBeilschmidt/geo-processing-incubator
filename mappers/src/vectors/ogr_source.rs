@@ -1,6 +1,6 @@
 use std::path::Path;
 use gdal::vector;
-use gdal::vector::{Dataset, Geometry};
+use gdal::vector::{Dataset};
 use geo;
 // use geo::ToGeo;
 use vectors::FeatureCollection;
@@ -29,7 +29,7 @@ impl OgrSource {
 
         for feature in layer.features() {
             let geometry: &vector::Geometry = feature.geometry();
-            
+
             // if let geo::Geometry::Point(point) = geometry.to_geo() {
             //     points.push(point)
             // }
